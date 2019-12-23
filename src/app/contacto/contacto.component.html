@@ -1,0 +1,47 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/lugares">Lugares</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h2>Contacto</h2>
+      <div class="alert alert-secondary" role="alert">Por favor déjenos saber si tiene comentarios o sugerencias que podríamos
+        usar para mejorar nuestro servicio.</div>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea name="mensaje" class="form-control"></textarea>
+        </div>
+        <hr>
+        <a href="" class="btn btn-primary">Enviar</a>
+        <a routerLink="/lugares" class="btn btn-dafault">Cancelar</a>
+      </form>
+    </div>
+    <div class="col-4">
+      <div class="card card-body bg-info text-white">
+        <h3>Sobre MySquare</h3>
+        <p>Nos dedicamos a promocionar los negocios de tu zona con planes gratuitos
+        o pagos para que los usuarios puedan encontrar lo que buscan fácil y rápidamente.</p>
+        <hr>
+        <p>Puedes seguirnos en nuestras redes sociales</p>
+        <ul class="list-group text-primary">
+          <li class="list-group-item"><i class="fab fa-facebook-square"></i> Facebook</li >
+          <li class="list-group-item"><i class="fab fa-twitter-square"></i> Twitter</li> 
+          <li class="list-group-item"><i class="fab fa-instagram"></i> Instagram</li> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

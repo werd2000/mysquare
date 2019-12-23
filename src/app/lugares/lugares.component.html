@@ -1,0 +1,30 @@
+<div class="row agm-map" id="map">
+</div>
+  
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Lugares cercanos</h2>
+      <a routerLink="/crear" class="btn btn-primary">Crear Nuevo Negocio</a>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares, let i = index">
+          <!-- <li class="list-group-item" *ngIf="lugar.active"> -->
+          <li class="list-group-item">
+            <a [routerLink]="[ '/detalle/', lugar.id ]" [queryParams]="{action: 'view', referer: 'google'}">
+              {{ lugar.nombre }} 
+            </a>
+            <span class="icon-edit">
+              <a [routerLink]="[ '/editar/', lugar.id ]" [queryParams]="{action: 'edit', referer: 'google'}">
+                <i class="fas fa-edit"></i>
+              </a>
+            </span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <!-- <div class="col-md-4">
+      <h2>Destacados</h2>
+    </div> -->
+  </div>
+</div>

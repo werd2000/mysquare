@@ -1,0 +1,71 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/lugares">Lugares</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Crear</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h2>Crear Nuevo Negocio</h2>
+      <!-- <form> -->
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" class="form-control" [(ngModel)]="lugar.nombre">
+        </div>
+        <div class="form-group">
+          <label for="distancia">Distancia</label>
+          <input type="number" name="distancia" class="form-control" [(ngModel)]="lugar.distancia">
+        </div>
+        <div class="form-group">
+          <label for="cercania">Cercanía</label>
+          <input type="number" name="cercania" class="form-control" [(ngModel)]="lugar.cercania">
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea name="descripcion" class="form-control" [(ngModel)]="lugar.description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="plan">Plan</label>
+          <input type="text" name="plan" class="form-control" [(ngModel)]="lugar.plan">
+        </div>
+        <hr>
+        <h3>Datos de dirección</h3>
+        <div class="form-group">
+          <label for="plan">Calle</label>
+          <input type="text" name="calle" class="form-control" [(ngModel)]="lugar.calle">
+        </div>
+        <div class="form-group">
+          <label for="plan">Ciudad</label>
+          <input type="text" name="ciudad" class="form-control" [(ngModel)]="lugar.ciudad">
+        </div>
+        <div class="form-group">
+          <label for="plan">CP</label>
+          <input type="text" name="cp" class="form-control" [(ngModel)]="lugar.cp">
+        </div>
+        <div class="form-group">
+          <label for="plan">País</label>
+          <input type="text" name="pais" class="form-control" [(ngModel)]="lugar.pais">
+        </div>
+        <hr>
+        <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>
+        <a routerLink="/lugares" class="btn btn-dafault">Cancelar</a>
+      <!-- </form > -->
+    </div>
+    <div class="col-4">
+      <div class="card card-body bg-info text-white">
+        <h3>Sobre MySquare</h3>
+        <p>Nos dedicamos a promocionar los negocios de tu zona con planes gratuitos
+        o pagos para que los usuarios puedan encontrar lo que buscan fácil y rápidamente.</p>
+        <hr>
+        <p>Puedes seguirnos en nuestras redes sociales</p>
+        <ul class="list-group text-primary">
+          <li class="list-group-item"><i class="fab fa-facebook-square"></i> Facebook</li >
+          <li class="list-group-item"><i class="fab fa-twitter-square"></i> Twitter</li> 
+          <li class="list-group-item"><i class="fab fa-instagram"></i> Instagram</li> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
