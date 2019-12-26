@@ -17,6 +17,9 @@
             <a [routerLink]="[ '/detalle/', lugar.id ]" [queryParams]="{action: 'view', referer: 'google'}">
               <h3>
                 {{ lugar.nombre | uppercase }}
+                <span *ngIf="lugar.plan === 'pago'">
+                  <i class="fas fa-star text-danger"></i>
+                </span>
               </h3>
             </a>
             <span class="icon-edit">
@@ -32,6 +35,25 @@
     </div>
     <div class="col-md-6">
       <h2>Destacados</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares, let i = index">
+          <!-- <li class="list-group-item" *ngIf="lugar.active"> -->
+          <li class="list-group-item list-group-item-success animated flash delay-2s slower" *ngIf="lugar.plan != 'gratuito'">
+            <a [routerLink]="[ '/detalle/', lugar.id ]" [queryParams]="{action: 'view', referer: 'google'}">
+              <h3>
+                {{ lugar.nombre | uppercase }}
+              </h3>
+            </a>
+            <span class="icon-edit">
+              <a [routerLink]="[ '/editar/', lugar.id ]" [queryParams]="{action: 'edit', referer: 'google'}">
+                <i class="fas fa-edit"></i>
+              </a>
+            </span>
+            <br>
+            <small [innerHtml]="lugar.description | linkifystr"></small>
+          </li>
+        </ng-container>
+      </ul>
     </div>
   </div>
 </div>

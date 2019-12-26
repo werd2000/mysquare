@@ -10,7 +10,9 @@
 }
 
 .icon-edit {
-  margin-left: 1em;
+  margin-right: 1em;
+  position: absolute;
+  right: 0;
 }
 
 li > .icon-edit {
