@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from '../../environments/environment';
 import * as Mapboxgl from 'mapbox-gl';
 import { LugaresService } from '../services/lugares.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html'
 })
-export class LugaresComponent implements OnInit {
+export class LugaresComponent implements OnInit, OnDestroy {
 
   title = 'mysquare';
   mapbox = (Mapboxgl as typeof Mapboxgl);
@@ -15,21 +16,35 @@ export class LugaresComponent implements OnInit {
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = -27.377200900501208;
   lng = -55.90348687170858;
-  zoom = 15;
+  zoom = 12;
   lugares = null;
+  suscriptor: Subscription[] = [];
+  msgError: string;
 
   constructor(
     private lugaresService: LugaresService
   ) {
-    this.lugaresService.getLugares().subscribe( (lugares) => {
-      // console.log(lugares);
-      this.lugares = lugares;
-    });
     this.mapbox.accessToken = environment.mapbox.accessToken;
+    this.suscriptor.push(
+      this.lugaresService.getLugares().subscribe( (lugares) => {
+        // console.log(lugares);
+        this.lugares = lugares;
+        this.buildMap();
+      },
+      (err) => {
+        console.error(err);
+        this.msgError = err;
+      })
+    );
   }
 
   ngOnInit() {
-    this.buildMap();
+  }
+
+  ngOnDestroy() {
+    this.suscriptor.forEach(susc => {
+      susc.unsubscribe();
+    });
   }
 
   buildMap() {
@@ -40,7 +55,9 @@ export class LugaresComponent implements OnInit {
       center: [this.lng, this.lat]
     });
     this.map.addControl(new Mapboxgl.NavigationControl());
-    this.crearMarcador(this.lng, this.lat);
+    this.lugares.forEach(lugar => {
+      this.crearMarcador(lugar.lng, lugar.lat);
+    });
   }
 
   crearMarcador(lng: number, lat: number) {

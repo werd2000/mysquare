@@ -30,7 +30,8 @@ export class CrearComponent implements OnInit {
   }
 
   guardarLugar() {
-    const direccion = `${this.lugar.calle} ${this.lugar.ciudad} ${this.lugar.cp} ${this.lugar.pais}`;
+    // const direccion = `${this.lugar.calle} ${this.lugar.ciudad} ${this.lugar.cp} ${this.lugar.pais}`;
+    const direccion = `${this.lugar.nombre}, ${this.lugar.ciudad}, ${this.lugar.pais}`;
     console.log(direccion);
     this.lugaresService.getGeoData(direccion)
       .subscribe( (resultado: any) => {

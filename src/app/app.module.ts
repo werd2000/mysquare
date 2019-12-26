@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { CrearComponent } from './crear/crear.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MapboxService } from './services/mapbox.service';
 
 // import { AgmCoreModule } from '@agm/core';
 
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    LugaresService
+    LugaresService,
+    MapboxService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,12 +6,27 @@
 </nav>
 
 <div class="container">
-  <h1>{{ lugar.nombre }}</h1>
-  <hr>
-  <small>{{lugar.distancia}}</small>
-  <br>
-  <div class="card card-body bg-light">
-    <p>{{lugar.description}}</p>
-    <b>{{lugar.plan}}</b>
+  <div class="row">
+    <div class="col-6">
+      <div class="card border-success">
+        <div class="card-header">
+          <h1>{{ lugar.nombre }}</h1>
+        </div>
+        <div class="card-body text-secondary">
+          
+          <h5 class="card-title">{{lugar.description}}</h5>
+          <p>
+            <small>distancia: {{lugar.distancia}}km</small>
+            <br>
+            <small class="card-text">Plan: <strong>{{lugar.plan}}</strong></small>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row agm-map" id="map">
+      </div>
+    </div>
   </div>
 </div>

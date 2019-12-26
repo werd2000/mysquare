@@ -4,9 +4,12 @@
 <br/>
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <h2>Lugares cercanos</h2>
-      <a routerLink="/crear" class="btn btn-primary">Crear Nuevo Negocio</a>
+      <div class="alert alert-danger" role="alert" *ngIf="msgError">
+        {{ msgError }}
+      </div>
+      
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares, let i = index">
           <!-- <li class="list-group-item" *ngIf="lugar.active"> -->
@@ -23,8 +26,8 @@
         </ng-container>
       </ul>
     </div>
-    <!-- <div class="col-md-4">
+    <div class="col-md-6">
       <h2>Destacados</h2>
-    </div> -->
+    </div>
   </div>
 </div>

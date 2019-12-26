@@ -22,8 +22,11 @@ export class LugaresService {
   }
 
   public getLugares() {
-    return this.af.collection('lugares').valueChanges();
-    // return this.lugares;
+    try {
+      return this.af.collection('lugares').valueChanges();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   buscarLugar(id: string) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LugaresService } from '../services/lugares.service';
+import { MapboxService } from '../services/mapbox.service';
 
 @Component({
   selector: 'app-detalle',
@@ -13,7 +14,8 @@ export class DetalleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private lugaresService: LugaresService
+    private lugaresService: LugaresService,
+    private mapBoxService: MapboxService
   ) {
     // console.log(this.route.snapshot.params.id);
     // console.log(this.route.snapshot.queryParams.action);
@@ -23,10 +25,11 @@ export class DetalleComponent implements OnInit {
     this.lugaresService.buscarLugar(this.id)
       .subscribe( (lugar) => {
         this.lugar = lugar;
+        this.mapBoxService.buildMap();
+        this.mapBoxService.crearMarcador(this.lugar.lng, this.lugar.lat);
       });
   }
 
   ngOnInit() {
-
   }
 }
