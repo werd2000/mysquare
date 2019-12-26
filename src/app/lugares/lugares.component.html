@@ -15,13 +15,17 @@
           <!-- <li class="list-group-item" *ngIf="lugar.active"> -->
           <li class="list-group-item">
             <a [routerLink]="[ '/detalle/', lugar.id ]" [queryParams]="{action: 'view', referer: 'google'}">
-              {{ lugar.nombre }} 
+              <h3>
+                {{ lugar.nombre | uppercase }}
+              </h3>
             </a>
             <span class="icon-edit">
               <a [routerLink]="[ '/editar/', lugar.id ]" [queryParams]="{action: 'edit', referer: 'google'}">
                 <i class="fas fa-edit"></i>
               </a>
             </span>
+            <br>
+            <small [innerHtml]="lugar.description | linkifystr"></small>
           </li>
         </ng-container>
       </ul>

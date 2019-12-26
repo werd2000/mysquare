@@ -19,6 +19,9 @@ import { CrearComponent } from './crear/crear.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapboxService } from './services/mapbox.service';
 
+// PIPES
+import { LinkifyStrPipe } from './pipes/linkifystr.pipe';
+
 // import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
@@ -29,7 +32,8 @@ import { MapboxService } from './services/mapbox.service';
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinkifyStrPipe
   ],
   imports: [
     BrowserModule,
